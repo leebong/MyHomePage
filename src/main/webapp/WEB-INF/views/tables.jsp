@@ -236,8 +236,8 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Board &nbsp;&nbsp;
-          <i class="fa fa-table"></i> <a href="/board/myboards">My Boards</a></div>
+          <i class="fa fa-table"></i> Table &nbsp;&nbsp;
+          <i class="fa fa-table"></i> <a href="/board/myboards">My Tables</a></div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

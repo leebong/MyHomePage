@@ -28,11 +28,11 @@
         <form method="post">
           <div class="form-group">
             <label for="usr">Id</label>
-            <input class="form-control" id="usr" name="id" type="id" aria-describedby="emailHelp" placeholder="아이디">
+            <input type="text" class="form-control" id="usr" name="id" type="id" aria-describedby="emailHelp" placeholder="아이디">
           </div>
           <div class="form-group">
             <label for="pwd">Password</label>
-            <input class="form-control" id="pwd" name="pw" type="pwd" placeholder="암호">
+            <input type="password" class="form-control" id="pwd" name="pw" type="pwd" placeholder="암호">
           </div>	
           <!--
           <div class="form-group">
@@ -50,7 +50,8 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index">Login</a>
+<!--           <a class="btn btn-primary btn-block" href="index">Login</a> -->
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="/register">Register an Account</a>
