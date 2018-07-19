@@ -91,7 +91,6 @@ public class HomeController {
 			return "index";
 		}
 	
-	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String homePost(Model model, HttpServletRequest request) {
 		String id = request.getParameter("id");
