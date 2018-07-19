@@ -1,5 +1,7 @@
 package kr.green.springwebproject.controller;
 
+import java.util.ArrayList;
+
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,9 +21,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.BoardMapper;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.dao.UserMapper;
+import kr.green.springwebproject.pagenation.Criteria;
+import kr.green.springwebproject.pagenation.PageMaker;
+import kr.green.springwebproject.service.BoardService;
 import kr.green.springwebproject.service.UserService;
 
 /**
@@ -39,6 +45,9 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	BoardService boardService;
+	
 	//2018-06-22 메일추가
 	@Autowired
 	private JavaMailSender mailSender;
@@ -52,11 +61,35 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String loginGet(Model model, HttpServletRequest request) {
-				
-		return "index";
-	}
+		@RequestMapping(value = "/index")
+		public String index(Model model,Criteria cri
+				,String search, Integer type, HttpServletRequest request) {
+		
+			if(cri == null) {
+				cri = new Criteria();
+			}
+			cri.setPerPageNum(100);
+			PageMaker pageMaker = new PageMaker();
+			int totalCount = boardService.getCountByBoardList(type, search, cri);
+			ArrayList<Board>list = boardService.getListBoard(type, search, cri);
+			
+			pageMaker.setCriteria(cri);
+			pageMaker.setTotalCount(totalCount);
+			
+			HttpSession session = request.getSession();
+			User user = (User)session.getAttribute("user");
+			
+			boolean admin = userService.isAdmin(user);
+			
+			model.addAttribute("admin", admin);
+			model.addAttribute("list",list);
+			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("search", search);
+			model.addAttribute("type", type);
+
+	
+			return "index";
+		}
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
@@ -194,13 +227,13 @@ public class HomeController {
 	
 	
 	//Start Bootstrap 
-	/*
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(Model model, HttpServletRequest request) {
 				
 		return "login";
 	}
-	*/
+	
 	/*
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String index(Model model, HttpServletRequest request) {
@@ -244,19 +277,73 @@ public class HomeController {
 				
 		return "navbar";
 	}
+	*/
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String rigster(Model model, HttpServletRequest request) {
 				
 		return "register";
 	}
-	*/
 	
-	@RequestMapping(value = "/tables", method = RequestMethod.GET)
-	public String tables(Model model, HttpServletRequest request) {
-				
-		return "/tables";
-	}
+	
+		@RequestMapping(value="/tables")
+		public String tables(Model model,Criteria cri
+				,String search, Integer type, HttpServletRequest request) {
+		
+			if(cri == null) {
+				cri = new Criteria();
+			}
+			cri.setPerPageNum(100);
+			PageMaker pageMaker = new PageMaker();
+			int totalCount = boardService.getCountByBoardList(type, search, cri);
+			ArrayList<Board>list = boardService.getListBoard(type, search, cri);
+			
+			pageMaker.setCriteria(cri);
+			pageMaker.setTotalCount(totalCount);
+			
+			HttpSession session = request.getSession();
+			User user = (User)session.getAttribute("user");
+			
+			boolean admin = userService.isAdmin(user);
+			
+			model.addAttribute("admin", admin);
+			model.addAttribute("list",list);
+			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("search", search);
+			model.addAttribute("type", type);
+
+			return "/tables";
+		}
+		
+		@RequestMapping(value="/mytables")
+		public String mytables(Model model,Criteria cri
+				,HttpServletRequest request) {
+			if(cri == null) {
+				cri = new Criteria();
+			}
+			
+			PageMaker pageMaker = new PageMaker();
+			
+			pageMaker.setCriteria(cri);
+			HttpSession session = request.getSession();
+			User user = (User)session.getAttribute("user");
+			String author = user.getName();
+			
+			int totalCount = boardService.getCountByBoardList(2, user.getName(), cri);
+			//리스트상 작성자가 name으로 나오게 함
+			ArrayList<Board> list = (ArrayList)boardService.getListBoard(2, user.getName(), cri);
+			
+			pageMaker.setTotalCount(totalCount);
+			model.addAttribute("list",list);
+			model.addAttribute("pageMaker", pageMaker);
+			
+			boolean admin = userService.isAdmin(user);
+			if(user.getAdmin().compareTo("USER")!=0)
+				admin = true;
+			model.addAttribute("admin", admin);
+			
+			return "/mytables";
+		}
 	
 	
 }

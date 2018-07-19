@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +22,14 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index">Start Bootstrap</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -33,18 +38,21 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="charts">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>
         </li>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Tables</span>
           </a>
         </li>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
@@ -223,6 +231,7 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+      
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -297,6 +306,8 @@
           </div>
         </div>
       </div>
+      
+      
       <!-- Area Chart Example-->
       <div class="card mb-3">
         <div class="card-header">
@@ -331,6 +342,9 @@
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
+          
+          
+          
           <!-- Card Columns Example Social Feed-->
           <div class="mb-0 mt-4">
             <i class="fa fa-newspaper-o"></i> News Feed</div>
@@ -366,7 +380,7 @@
                       <li class="list-inline-item">
                         <a href="#">Like</a>
                       </li>
-                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">Â·</li>
                       <li class="list-inline-item">
                         <a href="#">Reply</a>
                       </li>
@@ -381,7 +395,7 @@
                           <li class="list-inline-item">
                             <a href="#">Like</a>
                           </li>
-                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">Â·</li>
                           <li class="list-inline-item">
                             <a href="#">Reply</a>
                           </li>
@@ -393,6 +407,9 @@
               </div>
               <div class="card-footer small text-muted">Posted 32 mins ago</div>
             </div>
+            
+            
+            
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">
@@ -423,7 +440,7 @@
                       <li class="list-inline-item">
                         <a href="#">Like</a>
                       </li>
-                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">Â·</li>
                       <li class="list-inline-item">
                         <a href="#">Reply</a>
                       </li>
@@ -433,6 +450,8 @@
               </div>
               <div class="card-footer small text-muted">Posted 46 mins ago</div>
             </div>
+            
+            
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">
@@ -492,7 +511,7 @@
                       <li class="list-inline-item">
                         <a href="#">Like</a>
                       </li>
-                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">Â·</li>
                       <li class="list-inline-item">
                         <a href="#">Reply</a>
                       </li>
@@ -508,7 +527,7 @@
                           <li class="list-inline-item">
                             <a href="#">Like</a>
                           </li>
-                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">Â·</li>
                           <li class="list-inline-item">
                             <a href="#">Reply</a>
                           </li>
@@ -585,12 +604,16 @@
           </div>
         </div>
       </div>
+      
+      
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Table</div>
         <div class="card-body">
           <div class="table-responsive">
+          
+          
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -616,6 +639,9 @@
 				</c:forEach>
               </tbody>
             </table>
+            
+            
+            
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -626,7 +652,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          <small>Copyright Â© Your Website 2018</small>
         </div>
       </div>
     </footer>
@@ -642,7 +668,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã—</span>
             </button>
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
@@ -662,7 +688,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã—</span>
             </button>
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

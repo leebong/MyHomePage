@@ -20,7 +20,7 @@ public class LoginInterceptor extends
 		HttpSession session = request.getSession();
 		Object user = session.getAttribute("user");
 		if(user != null) {
-			response.sendRedirect("/board/list");
+			response.sendRedirect("/index");
 			return false;
 		}
 		return true;
